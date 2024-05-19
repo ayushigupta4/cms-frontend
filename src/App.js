@@ -15,7 +15,7 @@ const App = () => {
         <NavBar/>
       
         <Routes>
-          <Route exact path='/create-entity' element={<CreateEntityForm />}></Route>
+          <Route exact path='/' element={<CreateEntityForm />}></Route>
           <Route exact path='/manage-entity' element={<ManageEntityFrom/>}></Route>
         </Routes>
         
