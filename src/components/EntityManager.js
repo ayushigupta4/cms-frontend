@@ -89,15 +89,18 @@ const EntityManager = ({ entityName }) => {
         <button type="submit">{editing ? 'Update' : 'Add'}</button>
       </form>
       <ul>
+        <table class="table table-striped">
+        
         {entries.map((entry) => (
-          <li key={entry.id}>
+          <tr key={entry.id}>
             {Object.entries(entry).map(([key, value]) => (
-              <span key={key}>{key}: {value} </span>
+              <td key={key}>{key}: {value} </td>
             ))}
-            <button onClick={() => handleEdit(entry)}>Edit</button>
-            <button onClick={() => handleDelete(entry.id)}>Delete</button>
-          </li>
+            <td><button onClick={() => handleEdit(entry)}>Edit</button></td>
+            <td><button onClick={() => handleDelete(entry.id)}>Delete</button></td>
+          </tr>
         ))}
+        </table>
       </ul>
     </div>
   );

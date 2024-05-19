@@ -1,16 +1,27 @@
 import React from 'react';
 import CreateEntityForm from './components/CreateEntityForm';
 import ManageEntityFrom from './components/ManageEntityFrom';
+import NavBar from './components/NavBar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css'
 
 
 const App = () => {
   
 
   return (
-    <div>
-      <h1>Content Management System</h1>
-      <CreateEntityForm />
-      <ManageEntityFrom/>
+    <div className="App">
+      <BrowserRouter>
+        <NavBar/>
+      
+        <Routes>
+          <Route exact path='/create-entity' element={<CreateEntityForm />}></Route>
+          <Route exact path='/manage-entity' element={<ManageEntityFrom/>}></Route>
+        </Routes>
+        
+        
+      </BrowserRouter>
+      
     </div>
   );
 };
