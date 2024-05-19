@@ -1,4 +1,3 @@
-// src/components/CreateEntityForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -24,6 +23,7 @@ const CreateEntityForm = () => {
         attributes,
       });
       alert('Entity created successfully!');
+
     } catch (error) {
       console.error('Error creating entity:', error);
       alert('Failed to create entity');
