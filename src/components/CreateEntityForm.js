@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './styles.css'
 
 const CreateEntityForm = () => {
   const [entityName, setEntityName] = useState('');
@@ -31,7 +32,7 @@ const CreateEntityForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='form'>
       <div>
         <label>Entity Name:</label>
         <input
@@ -66,10 +67,10 @@ const CreateEntityForm = () => {
           </div>
         ))}
       </div>
-      <button type="button" onClick={handleAddAttribute}>
+      <button className="btn btn-dark" type="button" onClick={handleAddAttribute}>
         Add Attribute
       </button>
-      <button type="submit">Create Entity</button>
+      <button className="btn btn-dark" type="submit">Create Entity</button>
     </form>
   );
 };

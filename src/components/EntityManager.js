@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './styles.css'
 
 const EntityManager = ({ entityName }) => {
   const [entries, setEntries] = useState([]);
@@ -71,8 +72,10 @@ const EntityManager = ({ entityName }) => {
     }
   };
 
+  const columns = entries.length > 0 ? Object.keys(entries[0]) : [];
+
   return (
-    <div>
+    <div className='form'>
       <h2>Manage {entityName}</h2>
       <form onSubmit={editing ? handleUpdate : handleSubmit}>
         {Object.keys(editing ? currentEntry : newEntry).map((key) => (
@@ -86,20 +89,32 @@ const EntityManager = ({ entityName }) => {
             />
           </div>
         ))}
-        <button type="submit">{editing ? 'Update' : 'Add'}</button>
+        <button className="btn btn-success" type="submit">{editing ? 'Update' : 'Add'}</button>
       </form>
       <ul>
         <table class="table table-striped">
-        
-        {entries.map((entry) => (
-          <tr key={entry.id}>
-            {Object.entries(entry).map(([key, value]) => (
-              <td key={key}>{key}: {value} </td>
+
+        <thead>
+          <tr>
+            {columns.map(column => (
+              <th key={column}>{column}</th>
             ))}
-            <td><button onClick={() => handleEdit(entry)}>Edit</button></td>
-            <td><button onClick={() => handleDelete(entry.id)}>Delete</button></td>
+            <th>Actions</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+            {entries.map((entry) => (
+                <tr key={entry.id}>
+                    {Object.entries(entry).map(([key, value]) => (
+                    <td key={key}> {value} </td>
+                    ))}
+                    <td><button className="btn btn-success" onClick={() => handleEdit(entry)}>Edit</button></td>
+                    <td><button className="btn btn-danger" onClick={() => handleDelete(entry.id)}>Delete</button></td>
+                </tr>
+            ))}
+        </tbody>
+        
+       
         </table>
       </ul>
     </div>

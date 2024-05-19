@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import EntityManager from './EntityManager'
+import EntityManager from './EntityManager';
+import './styles.css'
 
 const ManageEntityFrom = () => {
     const [entityName, setEntityName] = useState('');
 
   return (
-    <div>
+    <div className='form'>
         <h2>Manage Entities</h2>
         <input
           type="text"
