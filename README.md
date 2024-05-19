@@ -15,7 +15,6 @@ This is the frontend for a rudimentary headless CMS built with React.js.
 ## Installation
 
 1. Clone the repository:
-   ```bash
    git clone https://github.com/ayushigupta4/cms-frontend.git
    cd cms-frontend
 
